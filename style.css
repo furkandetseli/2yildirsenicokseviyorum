@@ -1,0 +1,786 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+.hero-bg.bg-1 {
+    background-image: url('photos/1.jpeg');
+}
+
+.hero-bg.bg-2 {
+    background-image: url('photos/2.jpeg');
+}
+
+.hero-bg.bg-3 {
+    background-image: url('photos/3.jpeg');
+}
+
+.hero-bg.bg-4 {
+    background-image: url('photos/4.jpeg');
+}
+
+.hero-bg.bg-5 {
+    background-image: url('photos/5.jpeg');
+}
+
+.hero-bg.bg-6 {
+    background-image: url('photos/6.jpeg');
+}
+
+.hero-bg.bg-7 {
+    background-image: url('photos/7.jpeg');
+}
+
+.hero-bg.active {
+    opacity: 0.25; /* içerik okunaklı kalsın diye düşük opaklık */
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.heart-animation {
+    font-size: 3rem;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Floating Flowers Animation */
+.floating-flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flower {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.flower:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.flower:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.flower:nth-child(3) {
+    top: 60%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.flower:nth-child(4) {
+    top: 70%;
+    right: 25%;
+    animation-delay: 3s;
+}
+
+.flower:nth-child(5) {
+    top: 40%;
+    left: 5%;
+    animation-delay: 4s;
+}
+
+.flower:nth-child(6) {
+    top: 80%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #e91e63;
+    font-weight: 600;
+}
+
+/* Love Story Section */
+.love-story {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #2d3436;
+    line-height: 1.8;
+}
+
+.story-image {
+    text-align: center;
+}
+
+.story-photo {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.story-photo:hover {
+    transform: translateY(-10px);
+}
+
+.image-placeholder {
+    background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+    border-radius: 20px;
+    padding: 3rem;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-placeholder:hover {
+    transform: translateY(-10px);
+}
+
+.image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Flower Gallery Section */
+.flower-gallery {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.gallery-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #636e72;
+    margin-bottom: 3rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.gallery-item .image-placeholder {
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ff7675, #fd79a8);
+    color: white;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flower-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.like-btn, .comment-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.like-btn:hover, .comment-btn:hover {
+    background: #e9ecef;
+    transform: scale(1.05);
+}
+
+.like-btn.liked {
+    color: #e91e63;
+}
+
+.like-btn.liked i {
+    color: #e91e63;
+}
+
+.like-count {
+    font-weight: 600;
+}
+
+/* Questions Section */
+.questions-section {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 80px 0;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.game-story {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.story-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #e91e63;
+}
+
+.questions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.question-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    display: none;
+    animation: fadeInUp 0.5s ease;
+}
+
+.question-card.active {
+    display: block;
+}
+
+.question-card h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #e91e63;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.question-subtitle {
+    font-size: 1rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.answer-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.answer-btn {
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    border: none;
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    color: #2d3436;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.answer-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #e91e63, #9c27b0);
+    color: white;
+}
+
+.answer-btn:active {
+    transform: translateY(-2px);
+}
+
+.answer-btn i {
+    font-size: 1.5rem;
+}
+
+.question-progress {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e91e63, #9c27b0);
+    width: 20%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+.progress-text {
+    color: #2d3436;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Memories Section */
+.memories {
+    background: linear-gradient(135deg, #dda0dd 0%, #98d8c8 100%);
+}
+
+.memories-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.memories-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #e91e63, #9c27b0);
+    transform: translateX(-50%);
+}
+
+.memory-item {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.memory-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.memory-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.memory-date {
+    flex: 0 0 200px;
+    text-align: center;
+    font-weight: 600;
+    color: #e91e63;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-content {
+    flex: 1;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin: 0 2rem;
+    position: relative;
+}
+
+.memory-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    transform: translateY(-50%);
+}
+
+.memory-item:nth-child(odd) .memory-content::before {
+    right: -30px;
+    border-left-color: white;
+}
+
+.memory-item:nth-child(even) .memory-content::before {
+    left: -30px;
+    border-right-color: white;
+}
+
+.memory-content h3 {
+    color: #e91e63;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Love Message Section */
+.love-message {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.message-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.message-box h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #e91e63;
+    margin-bottom: 2rem;
+}
+
+.message-box p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #2d3436;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #e91e63;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+/* Footer */
+.footer {
+    background: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .memories-timeline::before {
+        left: 20px;
+    }
+    
+    .memory-item {
+        flex-direction: column !important;
+        padding-left: 3rem;
+    }
+    
+    .memory-date {
+        flex: none;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+    
+    .memory-content {
+        margin: 0;
+    }
+    
+    .memory-content::before {
+        left: -30px !important;
+        right: auto !important;
+        border-right-color: white !important;
+        border-left-color: transparent !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    /* Questions responsive */
+    .question-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .question-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .answer-options {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .answer-btn {
+        padding: 1.2rem 0.8rem;
+        font-size: 1rem;
+    }
+    
+    .flower-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .like-btn, .comment-btn {
+        justify-content: center;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .message-box {
+        padding: 2rem;
+    }
+    
+    .memory-content {
+        padding: 1.5rem;
+    }
+    
+    /* Extra small screens */
+    .question-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .question-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .answer-btn {
+        padding: 1rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .answer-btn span {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-item .image-placeholder {
+        padding: 1.5rem;
+        min-height: 150px;
+    }
+    
+    .flower-actions {
+        padding: 0.8rem;
+    }
+    
+    .like-btn, .comment-btn {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Results page styles */
+.results-summary {
+    margin: 2rem 0;
+    text-align: left;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.results-summary h4 {
+    color: #e91e63;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.results-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.results-summary li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.results-summary li:last-child {
+    border-bottom: none;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #e91e63, #9c27b0);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto 0;
+}
+
+.restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+}
